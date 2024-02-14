@@ -20,6 +20,7 @@ spring:
             preLogger: true
             postLogger: true
       routes:
+
         - id: user-service
           uri: lb://USER-SERVICE
           predicates:
@@ -31,3 +32,55 @@ spring:
                 baseMessage: Spring Cloud Gateway LoggingFilter
                 preLogger: true
                 postLogger: true
+
+        - id: like-service
+          uri: lb://LIKE-SERVICE
+          predicates:
+            - Path=/like-service/**
+          filters:
+            - name: CustomFilter
+            - name: LoggingFilter
+              args:
+                baseMessage: Spring Cloud Gateway LoggingFilter
+                preLogger: true
+                postLogger: true
+
+        - id: posting-service
+          uri: lb://POSTING-SERVICE
+          predicates:
+            - Path=/posting-service/**
+          filters:
+            - name: CustomFilter
+            - name: LoggingFilter
+              args:
+                baseMessage: Spring Cloud Gateway LoggingFilter
+                preLogger: true
+                postLogger: true
+
+        - id: comment-service
+          uri: lb://COMMENT-SERVICE
+          predicates:
+            - Path=/comment-service/**
+          filters:
+            - name: CustomFilter
+            - name: LoggingFilter
+              args:
+                baseMessage: Spring Cloud Gateway LoggingFilter
+                preLogger: true
+                postLogger: true
+
+        - id: letter-service
+          uri: lb://LETTER-SERVICE
+          predicates:
+            - Path=/letter-service/**
+          filters:
+            - name: CustomFilter
+            - name: LoggingFilter
+              args:
+                baseMessage: Spring Cloud Gateway LoggingFilter
+                preLogger: true
+                postLogger: true
+
+
+jwt:
+  secret-key: secret-key-one-two-will-be-change-next-time
