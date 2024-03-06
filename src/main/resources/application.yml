@@ -3,7 +3,7 @@ spring:
     import: configserver:http://127.0.0.1:8888
   cloud:
     config:
-      name: like-service
+      name: api-gateway
       profile: local
 
 management:
